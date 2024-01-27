@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>This is a fifth post (draft)</title>
+		<meta name="description" content="I am writing about my experiences as a naval navel-gazer.">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Eleventy Base Blog v8">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Eleventy Base Blog v8">
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Eleventy Base Blog v8</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/about/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>This is a fifth post (draft)</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2023-01-23">23 January 2023</time></li>
+</ul>
+
+<h2 id="sourdough-english-muffin" tabindex="-1">Sourdough English Muffin <a class="header-anchor" href="#sourdough-english-muffin">#</a></h2>
+<h4 id="ingredients" tabindex="-1">Ingredients <a class="header-anchor" href="#ingredients">#</a></h4>
+<ul>
+<li>2 tablespoons (25g) granulated sugar</li>
+<li>2 cups (454g) water, warm (110°F-115°F)</li>
+<li>1 tablespoon active dry yeast or instant yeast</li>
+<li>1 cup (227g) sourdough starter, ripe (fed) or discard; ripe will give you a more vigorous rise</li>
+<li>7 cups (840g) Unbleached All-Purpose Flour</li>
+<li>1/2 cup (56g) King Arthur Baker's Special Dry Milk or nonfat dry milk</li>
+<li>4 tablespoons (57g) butter, at room temperature</li>
+<li>1 tablespoon (18g) table salt</li>
+<li>1/4 teaspoon citric acid (sour salt), optional; for enhanced sour flavor</li>
+<li>King Arthur Semolina Flour or yellow cornmeal, for coating</li>
+</ul>
+<h4 id="directions" tabindex="-1">Directions <a class="header-anchor" href="#directions">#</a></h4>
+<ol>
+<li>
+<p>Weigh your flour; or measure it by gently spooning it into a cup, then sweeping off any excess. Combine all of the dough ingredients, except the cornmeal/semolina, in a large bowl.</p>
+</li>
+<li>
+<p>Mix and knead — by hand, electric mixer, or bread machine — to form a smooth dough. The dough should be soft and elastic, but not particularly sticky; add additional flour if necessary.</p>
+</li>
+<li>
+<p>Place the dough in a lightly greased bowl, cover, and set it aside to rise for about 1 1/2 hours, or until it's noticeably puffy. For most pronounced sour flavor, cover the bowl, and immediately place it in the refrigerator (without rising first). Let the dough chill for 24 hours; this will develop its flavor.</p>
+</li>
+<li>
+<p>Gently deflate the dough, turn it out onto a lightly floured work surface, cover it, and let it sit for a few minutes, to relax the gluten. Divide the dough in half. Working with one piece at a time, roll 1/2&quot; thick, and cut in 3&quot; rounds. Re-roll and cut any remaining scraps. Repeat with the remaining half of dough.</p>
+</li>
+<li>
+<p>Alternatively, divide the dough into 24 pieces (total). Shape each piece into a round ball, then flatten each ball into a 3&quot; round. For a somewhat more even rise as the muffins cook, flatten each ball slightly larger than 3&quot;, and trim edges with a 3&quot; cutter (or trim all around the edge with a pair of scissors). Muffins with cut (rather than flattened) sides will rise more evenly.</p>
+</li>
+<li>
+<p>Place the rounds, evenly spaced, onto cornmeal- or semolina-sprinkled baking sheets (12 per sheet). Sprinkle them with additional cornmeal or semolina, cover with plastic wrap, and let them rise until light and puffy, about 45 to 60 minutes. If the dough has been refrigerated overnight, the rise time will be about 2 hours.</p>
+</li>
+<li>
+<p>Carefully transfer the rounds (as many as a time that will fit without crowding) right-side up to a large electric griddle preheated to 350°F, or to an ungreased frying pan that has been preheated over medium-low heat.</p>
+</li>
+<li>
+<p>Cook the muffins for about 5 minutes on their first side; then lay a cake pan, cookie sheet, or similar flat (though not overly heavy) object atop them to help keep them flat. Continue cooking for about 7 minutes or so; then remove the pan, turn the muffins over, and finish cooking without the pan on top for a total of about 10 to 12 minutes or when the center of a muffin registers 190°F on a digital thermometer. If you're having trouble getting muffins to cook all the way through on the stovetop, cook until golden brown on both sides, then transfer to a preheated 350°F oven and bake until the muffins' interior shows no sign of wet dough, about 10 minutes or so.</p>
+</li>
+<li>
+<p>Remove the muffins from the griddle, and cool on a rack. Store tightly wrapped at room temperature for 4 or 5 days; freeze for longer storage.</p>
+</li>
+</ol>
+<h4 id="tips" tabindex="-1">Tips <a class="header-anchor" href="#tips">#</a></h4>
+<ul>
+<li>
+<p>To shorten cooking time, use a lidded electric fry pan heated to 325°F. Cook the muffins for about 10 minutes without the lid (or until they're nicely browned), turn them over, and add the lid. Don't set the lid on tight; leave a small opening for any steam to escape. Cook the muffins for an additional 8 to 10 minutes, until their bottom sides are browned.</p>
+</li>
+<li>
+<p>This recipe is easily halved, if you don't want to make 2 dozen muffins. Halve all of the ingredients; for a slightly faster rise, use 2 teaspoons yeast, rather than 1 1/2 teaspoons.</p>
+</li>
+</ul>
+
+<ul class="links-nextprev"><li>Previous: <a href="/blog/fourthpost/">This is my fourth post.</a></li>
+</ul>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- Current page: /blog/fifthpost/ -->
+	</body>
+</html>
