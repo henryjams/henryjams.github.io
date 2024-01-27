@@ -27,14 +27,14 @@ jobs:
           node-version: 20.x
 
       - name: run eleventy
-        run: 
+        run: |
           npm install
           npx @11ty/eleventy
 
       - name: upload static site content
         uses: actions/upload-pages-artifact@v2
         with:
-          path: _site
+          path: ./_site
 
  # Deployment job
   deploy:
